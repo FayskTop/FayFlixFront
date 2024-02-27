@@ -30,10 +30,6 @@ jobs:
           # Fix unused variables reported by ESLint
           # You may need to adjust these commands based on your project structure
           sed -i '/no-unused-vars/d' src/App.js src/index.js
-      - name: Fix deprecated packages
-        run: |
-          # You can update or replace deprecated packages here
-          npm audit fix --force
       - name: Add missing Babel plugin
         run: npm install @babel/plugin-proposal-private-property-in-object
       - name: Build And Deploy
