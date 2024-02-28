@@ -57,7 +57,7 @@ function App() {
   }
 
   function toggleDarkMode() {
-    setDarkMode(!darkMode); // Alternar entre modo claro e escuro
+    setDarkMode(!darkMode);
   }
 
   return (

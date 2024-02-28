@@ -2,36 +2,36 @@
     body {
         margin: 0;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #C7C8CC; /* Cor de fundo padrão (light mode) */
-        color: #26282B; /* Cor padrão do texto */
-        transition: background-color 1s ease, color 1s ease; /* Transições suaves */
+        background-color: #C7C8CC;
+        color: #26282B;
+        transition: background-color 1s ease, color 1s ease;
 
         &.dark-mode {
-            background-color: #353941; /* Cor de fundo (dark mode) */
-            color: #e3e3e3; /* Cor do texto (dark mode) */
-          
+            background-color: #353941;
+            color: #e3e3e3;
+
             .video-popup {
-                background-color: #26282B; /* Cor de fundo do popup (dark mode) */
-                box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Sombra do popup (dark mode) */
+                background-color: #26282B;
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
             }
         }
     }
 }
 
 link[rel="icon"] {
-    max-width: 100px; /* Defina o tamanho máximo desejado */
+    max-width: 100px;
     max-height: 100px;
 }
 
 header {
-    background-color: #353941; /* Cor do cabeçalho (dark mode) */
-    color: #e3e3e3; /* Cor do texto no cabeçalho (dark mode) */
+    background-color: #353941;
+    color: #e3e3e3;
     padding: 20px 0;
     text-align: center;
 
     &.dark-mode {
-        background-color: #e3e3e3; /* Cor de fundo (dark mode) */
-        color: #353941; /* Cor do texto (dark mode) */      
+        background-color: #e3e3e3;
+        color: #353941;
     }
 }
 
@@ -43,16 +43,16 @@ header {
 }
 
 .video-item {
-    background-color: (53 57 65 / 23%);/* Cor de fundo dos itens (dark mode) */
-    color: #666; /* Cor do texto (dark mode) */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); /* Sombra dos itens */
-    border-radius: 12px; /* Bordas arredondadas */
+    background-color: (53 57 65 / 23%);
+    color: #666;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+    border-radius: 12px;
     overflow: hidden;
     transition: background-color 1s ease, color 1s ease;
 
     &.dark-mode {
-        background-color: #B4B4B8; /* Cor de fundo dos itens (light mode) */
-        color: #353941; /* Cor do texto (light mode) */
+        background-color: #B4B4B8;
+        color: #353941;
     }
 }
 
@@ -60,11 +60,11 @@ header {
     width: 100%;
     height: auto;
     display: block;
-    border-bottom: 2px solid #E3E1D9; /* Cor da borda inferior (light mode) */
+    border-bottom: 2px solid #E3E1D9;
     cursor: pointer;
 
     &.dark-mode {
-        border-bottom-color: #F2EFE5; /* Cor da borda inferior (dark mode) */
+        border-bottom-color: #F2EFE5;
     }
 }
 
@@ -80,7 +80,7 @@ header {
 
 .video-description {
     font-size: 14px;
-    color: #666; /* Cor da descrição (light mode) */
+    color: #666;
     margin: 10px 0;
 }
 
@@ -98,7 +98,7 @@ header {
 
 .video-popup {
     padding: 4px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Sombra do popup */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     width: 90%;
     max-width: 800px;
     height: auto;
@@ -123,8 +123,8 @@ header {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #fff; /* Cor do botão no modo claro */
-    color: #26282B; /* Cor do botão no modo claro */
+    background-color: #fff;
+    color: #26282B;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -133,20 +133,19 @@ header {
     align-items: center;
     cursor: pointer;
     z-index: 9999;
-    transition: background-color 1s ease, color 1s ease; /* Transições suaves */
+    transition: background-color 1s ease, color 1s ease;
 
     &:hover {
-        background-color: #90B8F8; /* Cor do botão ao passar o mouse no modo claro */
+        background-color: #90B8F8;
         color: #fff;
     }
 
     &.dark-mode {
-        background-color: #26282B; /* Cor do botão no modo escuro */
-        color: #fff; /* Cor do botão no modo escuro */
+        background-color: #26282B;
+        color: #fff;
     }
 }
 
-// Adicionando o prefixo 'click-feedback' diretamente na classe do vídeo-popup
 .video-popup {
     &.click-feedback-left {
         animation: clickAnimationLeft 1s;
