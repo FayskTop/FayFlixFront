@@ -35,7 +35,7 @@ function App() {
   }, []);
 
   async function fetchContent(containerName) {
-    const response = await fetch(`https://storagefayflix.blob.core.windows.net/${containerName}`);
+    const response = await fetch(`https://apiserverfile.azurewebsites.net/${containerName}`);
     if (!response.ok) {
       throw new Error(`Failed to load ${containerName}: ${response.statusText}`);
     }
