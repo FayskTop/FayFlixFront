@@ -35,7 +35,7 @@ function App() {
   }, []);
 
   async function fetchContent(containerName) {
-    const response = await fetch(`http://192.168.3.211:3001/${containerName}`);
+    const response = await fetch(`https://storagefayflix.blob.core.windows.net/${containerName}`);
     if (!response.ok) {
       throw new Error(`Failed to load ${containerName}: ${response.statusText}`);
     }
