@@ -1,0 +1,32 @@
+.video-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.video-item {
+    background-color: (53 57 65 / 23%);
+    color: #666;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: background-color 1s ease, color 1s ease;
+
+    &.dark-mode {
+        background-color: #B4B4B8;
+        color: #353941;
+    }
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 2px solid #E3E1D9;
+    cursor: pointer;
+
+    &.dark-mode {
+        border-bottom-color: #F2EFE5;
+    }
+}

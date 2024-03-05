@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import styles from './App.module.scss'; 
-
-const defaultThumbnail = 'https://storagefayflix.blob.core.windows.net/webpage/404.jpeg';
-const defaultGif = 'https://storagefayflix.blob.core.windows.net/webpage/404.gif';
+import Loading from './components/Loading/Loading';
+import Error from './components/Error/Error';
+import MainContent from './components/MainContent/MainContent';
+import { fetchContent } from './utils/fileUtils'; // Importa a função fetchContent do utilfile.js
+import styles from './App.module.scss';
 
 function App() {
   const [videos, setVideos] = useState([]);
@@ -34,23 +35,6 @@ function App() {
     fetchData();
   }, []);
 
-  async function fetchContent(containerName) {
-    const response = await fetch(`https://apiserverfile.azurewebsites.net/${containerName}`);
-    if (!response.ok) {
-      throw new Error(`Failed to load ${containerName}: ${response.statusText}`);
-    }
-    const contentData = await response.json();
-    return contentData.map(item => ({
-      name: item.name,
-      fullPath: item.path
-    }));
-  }
-
-  function findRelatedFile(videoName, fileList) {
-    const relatedFile = fileList.find(file => file.name === videoName);
-    return relatedFile ? relatedFile.fullPath : '';
-  }
-
   function openVideoPopup(videoUrl) {
     setShowVideoPopup(true);
     setPopupVideoUrl(videoUrl);
@@ -69,52 +53,23 @@ function App() {
 
   return (
     <div className={`${styles.app} ${darkMode ? styles['dark-mode'] : ''}`}>
-      {loading && <p>Loading...</p>}
-      {error && <p className={styles.error}>{error}</p>}
+      {loading && <Loading />}
+      {error && <Error message={error.message} />} {/* Exiba a mensagem de erro */}
       {!loading && !error && (
-        <>
-          <div className={styles['video-container']}>
-            {videos.map((video, index) => (
-              <div className={`${styles['video-item']} ${darkMode ? styles['dark-mode'] : ''}`} key={index}>
-                <img
-                  className={styles['video-thumbnail']}
-                  src={findRelatedFile(video.name, thumbnails) || defaultThumbnail}
-                  alt={`Thumbnail ${index}`}
-                  onClick={() => openVideoPopup(video.fullPath)}
-                  onMouseOver={(e) => e.target.src = findRelatedFile(video.name, gifs) || defaultGif}
-                  onMouseOut={(e) => e.target.src = findRelatedFile(video.name, thumbnails) || defaultThumbnail}
-                />
-                <div className={styles['video-info']}>
-                  <h2 className={styles['video-title']}>{video.name}</h2>
-                  {/* Adicione descrição se disponível */}
-                  {/* <p className={styles['video-description']}>{videos[index].description}</p> */}
-                </div>
-              </div>
-            ))}
-          </div>
-        
-          {showVideoPopup && (
-            <div className={styles['video-overlay']} onClick={closeVideoPopup}>
-              <div className={styles['video-popup']}>
-                <video className={styles['popup-video']} controls autoPlay src={popupVideoUrl} />
-                {/* <h2 className={styles['video-name']}>{getVideoName(popupVideoUrl)}</h2> */}
-                <span className={styles['close-btn']} onClick={closeVideoPopup}>X</span>
-              </div>
-            </div>
-          )}
-
-          <button 
-            id="dark-mode-toggle" 
-            className={`${styles['dark-mode-toggle']} ${darkMode ? styles['dark-mode'] : ''}`} 
-            onClick={toggleDarkMode}
-            style={{ backgroundColor: darkMode ? '#fff' : '#26282B', color: darkMode ? '#26282B' : '#fff' }}
-          >
-            {darkMode ? '☀️' : '🌙'}
-          </button>
-        </>
+        <MainContent
+          videos={videos}
+          gifs={gifs}
+          thumbnails={thumbnails}
+          darkMode={darkMode}
+          showVideoPopup={showVideoPopup}
+          popupVideoUrl={popupVideoUrl}
+          openVideoPopup={openVideoPopup}
+          closeVideoPopup={closeVideoPopup}
+          toggleDarkMode={toggleDarkMode}
+        />
       )}
     </div>
-  );  
+  );
 }
 
 export default App;
