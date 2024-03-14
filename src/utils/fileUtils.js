@@ -32,6 +32,20 @@ export async function fetchDataFromApi(url) {
 }
 
 /**
+ * Função para extrair o valor entre a quarta e a quinta barra de uma URL.
+ * @param {string} url A URL da qual extrair o valor.
+ * @returns {string} O valor entre a quarta e a quinta barra.
+ */
+function extractValueFromUrl(url) {
+  const matches = url.match(/^https?:\/\/[^/]+\/[^/]+\/([^/]+)\/.*/);
+  if (matches && matches.length >= 2) {
+    return matches[1]; // Retorna o valor entre a segunda e a terceira barra
+  } else {
+    return null; // Retorna null se não encontrar o valor
+  }
+}
+
+/**
  * Função para encontrar um arquivo relacionado com base no nome.
  * @param {string} fileName O nome do arquivo.
  * @param {Array<Object>} fileList A lista de arquivos.
@@ -52,10 +66,12 @@ export async function fetchContent(containerName) {
   const endpoint = `https://apiserverfile.azurewebsites.net/${containerName}`;
   try {
     const contentData = await fetchDataFromApi(endpoint);
-    return contentData.map(item => ({
+    const fileList = contentData.map(item => ({
       name: item.name,
-      fullPath: item.path
+      fullPath: item.path,
+      directory: extractValueFromUrl(item.path)
     }));
+    return fileList;
   } catch (error) {
     throw new Error(`Failed to fetch content from ${containerName}: ${error.message}`);
   }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Loading from './components/Loading/Loading';
 import Error from './components/Error/Error';
 import MainContent from './components/MainContent/MainContent';
-import { fetchContent } from './utils/fileUtils'; // Importa a função fetchContent do utilfile.js
+import { fetchContent } from './utils/fileUtils';
 import styles from './App.module.scss';
 
 function App() {
