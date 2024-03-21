@@ -1,34 +1,34 @@
 /* Catalog.module.css */
 .catalogContainer {
-    padding: 20px;
-  }
-  
-  .catalogList {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 20px;
-  }
-  
-  .catalogItem {
-    text-align: center;
-  }
-  
-  .thumbnail {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    transition: transform 0.2s ease;
-  }
-  
-  .thumbnail:hover {
-    transform: scale(1.05);
-  }
-  
-  .loading {
-    text-align: center;
-    font-size: 1.2rem;
-    margin-top: 20px;
-  }
-  
+  padding: 20px;
+}
+
+.catalogList {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+}
+
+.catalogItem {
+  text-align: center;
+}
+
+.catalogItem img { /* Adicionado para estilizar a imagem do catálogo */
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 1s ease;
+}
+
+.catalogItem img:hover { /* Adicionado para adicionar um efeito hover à imagem do catálogo */
+  transform: scale(1.05);
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
