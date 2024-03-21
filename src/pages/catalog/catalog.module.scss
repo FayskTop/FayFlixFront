@@ -15,7 +15,8 @@
   text-align: center;
 }
 
-.catalogItem img { /* Adicionado para estilizar a imagem do catálogo */
+.catalogItem img {
+  /* Adicionado para estilizar a imagem do catálogo */
   width: 100%;
   max-width: 300px;
   height: auto;
@@ -23,7 +24,8 @@
   transition: transform 1s ease;
 }
 
-.catalogItem img:hover { /* Adicionado para adicionar um efeito hover à imagem do catálogo */
+.catalogItem img:hover {
+  /* Adicionado para adicionar um efeito hover à imagem do catálogo */
   transform: scale(1.05);
 }
 
@@ -31,4 +33,9 @@
   text-align: center;
   font-size: 1.2rem;
   margin-top: 20px;
+}
+
+.nomeConteudo {
+  font-size: 20px;
+  text-decoration: none;
 }

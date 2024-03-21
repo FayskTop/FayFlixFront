@@ -45,31 +45,34 @@ const CatalogItem = () => {
   }));
 
   return (
-    <div className={styles.catalogItem}>
-      <h1>{directory}</h1>
-      <div className={styles.videoList}>
-        {combinedItems.map((item, index) => {
-          return (
-            <Link key={index} to={`/watchContent?videoId=${encodeURIComponent(item.name)}`} className={styles.videoItem}>
-              <div 
-                className={styles.thumbnailContainer}
-                onMouseEnter={() => setHoveredThumbnail(item.name)}
-                onMouseLeave={() => setHoveredThumbnail(null)}
-              >
-                {hoveredThumbnail === item.name && item.gif ? (
-                  <img src={item.gif.fullPath} alt={item.name} className={styles.videoThumbnail} />
-                ) : (
-                  <img src={item.thumbnail.fullPath} alt={item.name} className={styles.videoThumbnail} />
-                )}
-              </div>
-              <div className={styles.videoInfo}>
-                <p className={styles.videoTitle}>{item.name}</p>
-                {/* <p className={styles.videoDescription}>Full Path: {item.fullPath}</p> */}
-                {/* Outras informações do item do catálogo */}
-              </div>
-            </Link>
-          );
-        })}
+    <div className={styles.catalogContainer}>
+      <div className={styles.catalogItem}>
+        {/* <h1><Link to="/catalog">Catalogo</Link></h1> */}
+        {/* <h1>{directory}</h1> */}
+        <div className={styles.videoList}>
+          {combinedItems.map((item, index) => {
+            return (
+              <Link key={index} to={`/watchContent?videoId=${encodeURIComponent(item.name)}`} className={styles.videoItem}>
+                <div 
+                  className={styles.thumbnailContainer}
+                  onMouseEnter={() => setHoveredThumbnail(item.name)}
+                  onMouseLeave={() => setHoveredThumbnail(null)}
+                >
+                  {hoveredThumbnail === item.name && item.gif ? (
+                    <img src={item.gif.fullPath} alt={item.name} className={styles.videoThumbnail} />
+                  ) : (
+                    <img src={item.thumbnail.fullPath} alt={item.name} className={styles.videoThumbnail} />
+                  )}
+                </div>
+                <div className={styles.videoInfo}>
+                  <p className={styles.videoTitle}>{item.name}</p>
+                  {/* <p className={styles.videoDescription}>Full Path: {item.fullPath}</p> */}
+                  {/* Outras informações do item do catálogo */}
+                </div>
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

@@ -42,7 +42,7 @@ const Catalog = () => {
 
   return (
     <div className={styles.catalogContainer}>
-      <h1>Catalog Page</h1>
+      {/* <h1><Link to="/">Home</Link></h1> */}
       <ul className={styles.catalogList}>
         {catalogItems
           .filter(item => item.directory !== null)
@@ -53,7 +53,7 @@ const Catalog = () => {
               <li key={index} className={styles.catalogItem}>
                 <Link to={`/catalog/${item.directory}`}>
                   {correspondingCatalogData && <img src={correspondingCatalogData.fullPath} alt={item.directory} />}
-                  <p>{item.directory}</p>
+                  <h3 className={styles.nomeConteudo}>{item.directory}</h3>
                 </Link>
               </li>
             );
