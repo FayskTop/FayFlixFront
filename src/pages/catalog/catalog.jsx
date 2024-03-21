@@ -40,6 +40,10 @@ const Catalog = () => {
     fetchCatalogItems();
   }, []);
 
+  if (isLoading) {
+    return <div>Carregando...</div>;
+  }
+
   return (
     <div className={styles.catalogContainer}>
       {/* <h1><Link to="/">Home</Link></h1> */}
