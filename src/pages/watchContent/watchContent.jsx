@@ -35,7 +35,7 @@ const WatchContent = () => {
 
   useEffect(() => {
     if (isVideoLoaded && videoRef.current) {
-      videoRef.current.volume = 0.2; // Define o volume para 20%
+      videoRef.current.volume = 0.1; // Define o volume para 10%
     }
   }, [isVideoLoaded]);
 

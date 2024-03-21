@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchContent } from '../../services/api';
+import { fetchContent, fetchItemsInDirectory } from '../../services/api';
+import styles from './catalog.module.scss';
 
 const Catalog = () => {
   const [catalogItems, setCatalogItems] = useState([]);
@@ -12,12 +13,11 @@ const Catalog = () => {
         const contentData = await fetchContent('Videos');
         const uniqueDirectories = new Set(); // Conjunto para armazenar diretórios únicos
         const uniqueItems = contentData.filter(item => {
-          if (uniqueDirectories.has(item.directory)) {
-            return false; // Retorna false se o diretório já foi adicionado
-          } else {
+          if (!uniqueDirectories.has(item.directory)) {
             uniqueDirectories.add(item.directory);
             return true; // Retorna true se o diretório ainda não foi adicionado
           }
+          return false; // Retorna false se o diretório já foi adicionado
         });
         setCatalogItems(uniqueItems);
       } catch (error) {
@@ -32,22 +32,25 @@ const Catalog = () => {
     }
   }, [catalogItems]);
 
-  if (isLoading) {
-    return <div>Carregando...</div>;
-  }
 
   return (
-    <div>
+    <div className={styles.catalogContainer}>
       <h1>Catalog Page</h1>
-      <ul>
-        {catalogItems.map((item, index) => (
-          <li key={index}>
-            <Link to={`/catalog/${item.directory}`}>{item.directory}</Link>
-          </li>
-        ))}
+      <ul className={styles.catalogList}>
+        {catalogItems.map((item, index) => {
+          return (
+            <li key={index} className={styles.catalogItem}>
+              <Link to={`/catalog/${item.directory}`}>
+                {item.thumbnail && <img src={item.thumbnail} alt={item.directory} className={styles.thumbnail} />}
+                <p>{item.directory}</p>
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
+
 }
 
 export default Catalog;
