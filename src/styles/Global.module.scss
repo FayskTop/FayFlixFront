@@ -1,31 +1,15 @@
 :global {
     body {
         margin: 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: 'Trebuchet MS', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         transition: background-color 1s ease, color 1s ease;
 
         &.dark-mode {
             background-color: #353941;
             color: #e3e3e38a;
-
-            .video-popup {
-                background-color: #26282B;
-                box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-            }
         }
     }
 
-    header {
-        background-color: #353941;
-        color: #e3e3e3;
-        padding: 20px 0;
-        text-align: center;
-
-        &.dark-mode {
-            background-color: #e3e3e3;
-            color: #353941;
-        }
-    }
 }
 
 link[rel="icon"] {
@@ -59,4 +43,37 @@ link[rel="icon"] {
     100% {
         transform: translateX(0);
     }
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Links não visitados */
+a:link {
+    color: #3f3a3a;
+    /* Cor para links não visitados */
+}
+
+/* Links visitados */
+a:visited {
+    color: #888788;
+    /* Cor para links visitados */
+    text-decoration: line-through;
+}
+
+/* Links quando o mouse está sobre eles */
+a:hover {
+    color: #201f1e;
+    /* Cor ao passar o mouse sobre o link */
+}
+
+/* Links quando estão ativos (clicados) */
+a:active {
+    color: #cc0000;
+    /* Cor quando o link está ativo (clicado) */
+}
+
+h1 {
+    text-align: center;
 }
