@@ -1,0 +1,26 @@
+{
+    "short_name": "FayFix",
+    "name": "FayFix - O seu site de multimídia",
+    "description": "FayFix é um site de multimídia inovador que oferece uma variedade de conteúdos de entretenimento, incluindo filmes, séries, músicas e muito mais. Desfrute de uma experiência de visualização sem precedentes com FayFix.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#ffffff",
+    "icons": [
+      {
+        "src": "icon/lowres.webp",
+        "sizes": "48x48",
+        "type": "image/webp"
+      },
+      {
+        "src": "icon/hd.png",
+        "sizes": "96x96 128x128 256x256",
+        "type": "image/png"
+      }
+    ],
+    "scope": "/",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "related_applications": []
+  }
+  
