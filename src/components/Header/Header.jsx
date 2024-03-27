@@ -9,7 +9,7 @@ const Header = () => {
 
     return (
         <header className={styles.header}>
-            <Link to="/"><img src="https://storagefayflix.blob.core.windows.net/webpage/FayFlixLogo.png" alt="FayFlix" /></Link>
+            <Link to="/"><img rel="preload" src="https://storagefayflix.blob.core.windows.net/webpage/FayFlixLogo.webp" alt="FayFlix" /></Link>
         </header>
     );
 };
