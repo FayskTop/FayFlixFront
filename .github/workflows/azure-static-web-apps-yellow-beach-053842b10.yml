@@ -25,14 +25,8 @@ jobs:
           node-version: '21.x'
       - name: Clear npm cache
         run: npm cache clean --force
-      - name: Install npm-check-updates
-        run: npm install -g npm-check-updates
-      - name: Update npm packages
-        run: npm-check-updates --upgrade
       - name: Install npm dependencies
         run: npm install --legacy-peer-deps
-      - name: Add missing Babel plugin
-        run: npm install @babel/plugin-proposal-private-property-in-object
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
