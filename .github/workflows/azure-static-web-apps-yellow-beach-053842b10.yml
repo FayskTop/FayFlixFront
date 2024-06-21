@@ -19,16 +19,20 @@ jobs:
         with:
           submodules: true
           lfs: false
+      - name: Install apt-utils
+        run: sudo apt-get update && sudo apt-get install -y apt-utils
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '21.x'
+          node-version: '21.x' # Versão suportada do Node.js
       - name: Clear npm cache
         run: npm cache clean --force
       - name: Install npm dependencies
         run: npm install --legacy-peer-deps
       - name: Ensure Babel plugin is installed
         run: npm install @babel/plugin-proposal-private-property-in-object --save-dev
+      - name: Run npm audit fix
+        run: npm audit fix
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
