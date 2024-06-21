@@ -31,8 +31,6 @@ jobs:
         run: npm install --legacy-peer-deps
       - name: Ensure Babel plugin is installed
         run: npm install @babel/plugin-proposal-private-property-in-object --save-dev
-      - name: Run npm audit fix
-        run: npm audit fix
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
