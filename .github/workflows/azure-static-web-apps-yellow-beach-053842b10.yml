@@ -22,15 +22,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '21.x'
+          node-version: '20.x' # Use a supported version of Node.js
       - name: Clear npm cache
         run: npm cache clean --force
       - name: Install npm dependencies
         run: npm install --legacy-peer-deps
       - name: Run npm audit fix
         run: npm audit fix
-      - name: Run npm audit fix --force
-        run: npm audit fix --force
+      # Remover npm audit fix --force para evitar mudanças de breaking
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
