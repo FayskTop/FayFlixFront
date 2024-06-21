@@ -27,9 +27,6 @@ jobs:
         run: npm cache clean --force
       - name: Install npm dependencies
         run: npm install --legacy-peer-deps
-      - name: Run npm audit fix
-        run: npm audit fix
-      # Remover npm audit fix --force para evitar mudanças de breaking
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
