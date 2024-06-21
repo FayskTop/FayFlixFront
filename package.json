@@ -3,7 +3,7 @@
   "version": "0.3.1",
   "private": true,
   "engines": {
-    "node": ">=21.7.3"
+    "node": ">=20.x"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",
