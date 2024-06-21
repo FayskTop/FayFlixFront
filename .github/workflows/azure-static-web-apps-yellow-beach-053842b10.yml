@@ -24,9 +24,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '21.x' # Versão suportada do Node.js
+          node-version: '21.x'
       - name: Clear npm cache
         run: npm cache clean --force
+      - name: Update npm to latest minor version
+        run: npm install -g npm@latest
       - name: Install npm dependencies
         run: npm install --legacy-peer-deps
       - name: Ensure Babel plugin is installed
